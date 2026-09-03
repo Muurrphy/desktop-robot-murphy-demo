@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Desktop Robot — Murphy Liu</title>
+    <meta name="description" content="A 4K project demo of a behaviour-science-informed desktop robot designed and built by Murphy Liu." />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">SELECTED WORK / 01</p>
+        <h1>Desktop Robot</h1>
+        <p class="dek">A behaviour-science-informed robotics prototype by Murphy Liu.</p>
+      </header>
+
+      <section class="player-shell" aria-label="Desktop Robot project demo">
+        <video
+          id="demo"
+          controls
+          playsinline
+          preload="metadata"
+          poster="assets/desktop-robot-poster.jpg"
+          data-source="demo-4k/index.m3u8"
+        ></video>
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+      </section>
+
+      <footer>
+        <span>4K project demo</span>
+        <span>05:05</span>
+      </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.6.13/dist/hls.min.js"></script>
+    <script src="player.js"></script>
+  </body>
+</html>
