@@ -24,7 +24,7 @@
       <p id="intro">实时语音交流 · 声音与表情协同 · 软硬件系统集成</p>
       <div id="media"><video id="video" controls playsinline preload="metadata" poster="desk.jpg"></video></div>
       <p id="status" class="status">视频载入失败，请刷新页面重试。</p>
-      <footer id="footer">1080p 高清中文项目实拍 · 5 分 13 秒</footer>
+      <footer id="footer">4K 超高清中文项目实拍 · 3840 × 2160 · 5 分 13 秒</footer>
     </main>
     <script src="hls.min.js"></script>
     <script>
@@ -56,13 +56,26 @@
         document.getElementById('footer').textContent='两个 SO-101 实机项目 · 预测 00:53 + 分拣 01:26';
       }else{
         const video=document.getElementById('video');
-        const source='desk-hd/index.m3u8';
-        if(video.canPlayType('application/vnd.apple.mpegurl'))video.src=source;
-        else if(window.Hls&&window.Hls.isSupported()){
-          const hls=new Hls({enableWorker:true,maxBufferLength:30});
-          hls.loadSource(source);hls.attachMedia(video);
-          hls.on(Hls.Events.ERROR,(_event,data)=>{if(data.fatal)status.classList.add('visible')});
-        }else status.classList.add('visible');
+        let hls;
+        let compatibility=false;
+        function loadVideo(fallback=false){
+          compatibility=fallback;
+          const source=fallback?'desk-compatible/index.m3u8':'desk-4k-hevc/index.m3u8';
+          if(hls){hls.destroy();hls=null;}
+          if(video.canPlayType('application/vnd.apple.mpegurl'))video.src=source;
+          else if(window.Hls&&window.Hls.isSupported()){
+            hls=new Hls({enableWorker:true,maxBufferLength:18});
+            hls.loadSource(source);hls.attachMedia(video);
+            hls.on(Hls.Events.ERROR,(_event,data)=>{if(data.fatal){
+              if(!compatibility)loadVideo(true);else status.classList.add('visible');
+            }});
+          }else status.classList.add('visible');
+        }
+        video.addEventListener('error',()=>{if(!compatibility)loadVideo(true);else status.classList.add('visible');});
+        video.addEventListener('loadedmetadata',()=>{
+          document.getElementById('footer').textContent=(video.videoWidth>=3840?'4K 超高清中文项目实拍':'兼容播放 · 中文项目实拍')+' · '+video.videoWidth+' × '+video.videoHeight+' · 5 分 13 秒';
+        });
+        loadVideo(!video.canPlayType('video/mp4; codecs="hvc1.1.6.L153.B0"'));
       }
     </script>
   </body>
