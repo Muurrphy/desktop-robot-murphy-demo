@@ -19,7 +19,7 @@
   </head>
   <body>
     <main>
-      <nav><a href="?project=desk">桌面机器人</a><a href="?project=ground">地面机器人</a><a href="?project=so101">SO-101 视觉分拣</a></nav>
+      <nav><a href="?project=desk">桌面机器人</a><a href="?project=ground">地面机器人</a></nav>
       <h1 id="title">桌面机器人</h1>
       <p id="intro">实时语音交流 · 声音与表情协同 · 软硬件系统集成</p>
       <div id="media"><video id="video" controls playsinline preload="metadata" poster="desk.jpg"></video></div>
@@ -38,22 +38,6 @@
         document.getElementById('intro').textContent='热成像跟随 · 双侧激光测距避障 · 无线观察台';
         video.poster='ground.jpg';video.src='ground.mp4';
         document.getElementById('footer').textContent='高清项目实拍演示 · 47 秒';
-      }else if(project==='so101'){
-        document.title='SO-101 机械臂实验集 · 项目演示';
-        document.getElementById('title').textContent='SO-101 机械臂实验集';
-        document.getElementById('intro').textContent='从预测下一状态，到用视觉选择实机分拣轨迹';
-        media.innerHTML=`
-          <section class="project-section" id="prediction">
-            <h2>01 / 预测下一步</h2>
-            <p>当前物体位置 + 六个关节指令 → 预测 2 秒后红色物体位置</p>
-            <video controls playsinline preload="metadata" poster="so101-prediction.jpg" src="so101-prediction.mp4"></video>
-          </section>
-          <section class="project-section" id="sorting">
-            <h2>02 / 视觉分拣</h2>
-            <p>腕部相机判断红蓝方块位置，自动选择对应的示教轨迹并完成实机分拣</p>
-            <video controls playsinline preload="metadata" poster="so101-sorting.jpg" src="so101-sorting.mp4"></video>
-          </section>`;
-        document.getElementById('footer').textContent='两个 SO-101 实机项目 · 预测 00:53 + 分拣 01:26';
       }else{
         const video=document.getElementById('video');
         let hls;
