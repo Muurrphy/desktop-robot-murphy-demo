@@ -1,0 +1,66 @@
+[
+  {
+    "id": "sleepy",
+    "name": "困倦",
+    "duration": 31.5,
+    "story": "困意袭来，努力清醒了一次；又慢慢低下头，缩成一团睡着。",
+    "src": "media/sleepy.mp4",
+    "poster": "media/sleepy.jpg"
+  },
+  {
+    "id": "disappointed",
+    "name": "失落",
+    "duration": 14.0,
+    "story": "有点欲言又止，随后转过身去，低着头独自失落。",
+    "src": "media/disappointed.mp4",
+    "poster": "media/disappointed.jpg"
+  },
+  {
+    "id": "hesitant",
+    "name": "犹豫",
+    "duration": 23.566666666666666,
+    "story": "想靠近又收回，停顿、试探，再做下一步。",
+    "src": "media/hesitant.mp4",
+    "poster": "media/hesitant.jpg"
+  },
+  {
+    "id": "happy",
+    "name": "开心",
+    "duration": 17.8,
+    "story": "像小狗一样歪头，再点头肯定，身体也跟着轻快地摆动。",
+    "src": "media/happy.mp4",
+    "poster": "media/happy.jpg"
+  },
+  {
+    "id": "startled",
+    "name": "震惊",
+    "duration": 13.5,
+    "story": "突然受到惊吓，后退、收缩，再试探眼前的情况。",
+    "src": "media/startled.mp4",
+    "poster": "media/startled.jpg"
+  },
+  {
+    "id": "curious",
+    "name": "好奇",
+    "duration": 19.7,
+    "story": "转向、靠近，换个角度观察眼前的东西。",
+    "src": "media/curious.mp4",
+    "poster": "media/curious.jpg"
+  },
+  {
+    "id": "playful",
+    "name": "玩耍",
+    "duration": 39.733333333333334,
+    "story": "推一推积木，再把蓝块放到红块上，随后转身招呼人来看。成功时是邀请，失败时也可以是求助。",
+    "src": "media/playful.mp4",
+    "poster": "media/playful.jpg"
+  },
+  {
+    "id": "angry",
+    "name": "生气",
+    "duration": 25.933333333333334,
+    "story": "动作带着不高兴，最后背对着人，像是在闹脾气。",
+    "src": "media/angry.mp4",
+    "poster": "media/angry.jpg"
+  }
+]
