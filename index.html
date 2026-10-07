@@ -19,9 +19,9 @@
   </head>
   <body>
     <main>
-      <nav><a href="portfolio/">作品集</a><a href="?project=desk">桌面机器人</a><a href="?project=ground">地面机器人</a><a href="arm-learning/">机械臂视觉</a><a href="expressions/">八种表达</a></nav>
+      <nav><a href="portfolio/">作品集</a><a href="?project=desk">桌面机器人</a><a href="?project=ground">地面机器人</a><a href="expressions/">八种表达</a></nav>
       <h1 id="title">桌面机器人</h1>
-      <p id="intro">实时语音交流 · 声音与表情协同 · 软硬件系统集成</p>
+      <p id="intro">一台接入实时语音的桌面机器人原型。</p>
       <div id="media"><video id="video" controls playsinline preload="metadata" poster="desk.jpg"></video></div>
       <p id="status" class="status">视频载入失败，请刷新页面重试。</p>
       <footer id="footer">中文项目实拍 · 5 分 13 秒</footer>
@@ -35,7 +35,7 @@
         const video=document.getElementById('video');
         document.title='地面机器人 · 项目演示';
         document.getElementById('title').textContent='地面机器人';
-        document.getElementById('intro').textContent='热成像跟随 · 双侧激光测距避障 · 无线观察台';
+        document.getElementById('intro').textContent='用热成像寻找人，再用激光测距避开障碍。';
         video.poster='ground.jpg';video.src='ground.mp4';
         document.getElementById('footer').textContent='高清项目实拍演示 · 47 秒';
       }else{
