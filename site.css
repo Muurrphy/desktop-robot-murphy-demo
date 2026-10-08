@@ -70,3 +70,5 @@ main{flex:1}
 
 @media (max-width:760px){body:before{top:14px;width:22px;height:4px}}
 .video-caption{max-width:46em;margin:16px 0 0;font-size:.95rem;line-height:1.85;color:#3b3d42}
+
+.reserved,.video-placeholder{display:grid;place-items:center;aspect-ratio:16/9;background:#f4f5f6;color:var(--muted);font-size:.9rem}.more .reserved{margin-bottom:.6rem}
