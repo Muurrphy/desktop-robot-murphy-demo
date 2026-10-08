@@ -51,7 +51,7 @@
         let compatibility=false;
         function loadVideo(fallback=false){
           compatibility=fallback;
-          const source=fallback?'desk-compatible/index.m3u8':'desk-4k-hevc/index.m3u8';
+          const source=fallback?'desk-compatible/index.m3u8?v=20261008-d5bae9d59f':'desk-4k-hevc/index.m3u8?v=20261008-d5bae9d59f';
           if(hls){hls.destroy();hls=null;}
           if(video.canPlayType('application/vnd.apple.mpegurl'))video.src=source;
           else if(window.Hls&&window.Hls.isSupported()){
