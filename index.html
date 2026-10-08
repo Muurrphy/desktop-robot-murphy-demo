@@ -11,7 +11,7 @@
       *{box-sizing:border-box}body{margin:0;background:#fff;color:#151515;font-family:system-ui,sans-serif}
       main{max-width:1150px;margin:auto;padding:40px 25px}nav{display:flex;flex-wrap:wrap;gap:18px;border-bottom:1px solid #ddd;padding-bottom:22px;font-size:14px}
       a{color:inherit;text-underline-offset:6px}h1{font-size:clamp(32px,5vw,48px);font-weight:550;margin:40px 0 12px}p{line-height:1.8;color:#555}
-      video{display:block;width:100%;max-height:73vh;background:#111;margin:28px 0}.status{display:none;color:#8b1d2c}.status.visible{display:block}
+      video{display:block;width:100%;max-height:73vh;background:#111;margin:28px 0}.video-caption{max-width:48em;margin:0 0 28px;font-size:15px}.status{display:none;color:#8b1d2c}.status.visible{display:block}
       .project-section{scroll-margin-top:24px}.project-section+.project-section{border-top:1px solid #ddd;margin-top:48px;padding-top:38px}
       .project-section h2{font-size:clamp(24px,3.2vw,34px);font-weight:560;margin:0 0 8px}.project-section p{margin:0}
       footer{border-top:1px solid #ddd;padding-top:20px;color:#666;font-size:13px}
@@ -23,6 +23,7 @@
       <h1 id="title">桌面机器人</h1>
       <p id="intro">一台接入实时语音的桌面机器人原型。</p>
       <div id="media"><video id="video" controls playsinline preload="metadata" poster="desk.jpg"></video></div>
+      <p id="caption" class="video-caption">这是我做的桌面机器人原型，已经能和人对话。视频把它放进了个人助手的使用场景，要让它在日常生活中长期可靠地帮人处理事情，还需要继续开发。</p>
       <p id="status" class="status">视频载入失败，请刷新页面重试。</p>
       <footer id="footer">中文项目实拍 · 5 分 13 秒</footer>
     </main>
@@ -36,6 +37,7 @@
         document.title='Kindle 伴读与多语言口型 · 项目演示';
         document.getElementById('title').textContent='Kindle 伴读与多语言口型';
         document.getElementById('intro').innerHTML='旧 Kindle 显示文章，iPad 上的嘴负责讲解和听问题，中途可以直接开口提问。<a href="https://github.com/Muurrphy/margin">开源代码 ↗</a>';
+        document.getElementById('caption').textContent='Margin 用旧 Kindle 显示文章，你可以开口提问，手机上的嘴跟着回答动。视频接入了机械臂项目，“惊讶”动作由演示脚本触发。开源版主要提供伴读和屏幕口型。';
         video.poster='margin.jpg';video.src='margin.mp4';
         document.getElementById('footer').textContent='实拍演示 · 56 秒 · 屏幕中的章鱼视频：OIST，CC BY 4.0';
       }else if(project==='ground'){
@@ -43,6 +45,7 @@
         document.title='地面机器人 · 项目演示';
         document.getElementById('title').textContent='地面机器人';
         document.getElementById('intro').textContent='用热成像寻找人，再用激光测距避开障碍。';
+        document.getElementById('caption').hidden=true;
         video.poster='ground.jpg';video.src='ground.mp4';
         document.getElementById('footer').textContent='高清项目实拍演示 · 47 秒';
       }else{
