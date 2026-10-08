@@ -19,7 +19,7 @@
   </head>
   <body>
     <main>
-      <nav><a href="portfolio/">作品集</a><a href="?project=desk">桌面机器人</a><a href="?project=ground">地面机器人</a><a href="expressions/">八种表达</a></nav>
+      <nav><a href="portfolio/">作品集</a><a href="?project=desk">桌面机器人</a><a href="?project=ground">地面机器人</a><a href="?project=margin">Kindle 伴读</a><a href="expressions/">八种表达</a></nav>
       <h1 id="title">桌面机器人</h1>
       <p id="intro">一台接入实时语音的桌面机器人原型。</p>
       <div id="media"><video id="video" controls playsinline preload="metadata" poster="desk.jpg"></video></div>
@@ -31,7 +31,14 @@
       const media=document.getElementById('media');
       const status=document.getElementById('status');
       const project=new URLSearchParams(location.search).get('project')||'desk';
-      if(project==='ground'){
+      if(project==='margin'){
+        const video=document.getElementById('video');
+        document.title='Kindle 伴读与多语言口型 · 项目演示';
+        document.getElementById('title').textContent='Kindle 伴读与多语言口型';
+        document.getElementById('intro').innerHTML='旧 Kindle 显示文章，iPad 上的嘴负责讲解和听问题，中途可以直接开口提问。<a href="https://github.com/Muurrphy/margin">开源代码 ↗</a>';
+        video.poster='margin.jpg';video.src='margin.mp4';
+        document.getElementById('footer').textContent='实拍演示 · 56 秒 · 屏幕中的章鱼视频：OIST，CC BY 4.0';
+      }else if(project==='ground'){
         const video=document.getElementById('video');
         document.title='地面机器人 · 项目演示';
         document.getElementById('title').textContent='地面机器人';
