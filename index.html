@@ -7,7 +7,7 @@
 <meta name="referrer" content="no-referrer">
 <title>作品与视频 · Murphy</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="site.css?v=20261008">
+<link rel="stylesheet" href="site.css?v=20261009-librarian">
 </head>
 <body>
 <div class="shell">
@@ -18,7 +18,7 @@
       <a href="?project=desk" data-p="desk">桌面机器人</a>
       <a href="?project=ground" data-p="ground">地面机器人</a>
       <a href="expressions/">机械臂情绪</a>
-      <a href="?project=margin" data-p="margin">Kindle 伴读</a>
+      <a href="?project=margin" data-p="margin">The Librarian</a>
     </nav>
   </header>
   <main id="main"></main>
@@ -34,8 +34,8 @@ const P={
     intro:'用热成像找人，用激光测距保持距离、避开障碍。',meta:'实拍 · 47 秒',dur:'47 秒'},
   arm:{n:'03',name:'机械臂情绪系统',poster:'expressions/arm-emotion-demo.jpg',href:'expressions/',
     intro:'受苹果 ELEGNT 台灯机器人启发，用动作表达情绪的 SO-101 小玩具。',meta:'场景演示 · 40 秒',dur:'40 秒'},
-  margin:{n:'04',name:'Kindle 伴读与多语言口型',href:'?project=margin',placeholder:true,
-    intro:'',link:['https://github.com/Muurrphy/margin','开源代码'],meta:'',dur:''}
+  margin:{n:'04',name:'The Librarian 图书管理员',href:'?project=margin',poster:'librarian-20261009.jpg',src:'librarian-20261009.mp4',vertical:true,
+    intro:'住在 Telegram 里的 AI 图书管理员。',link:['https://github.com/Muurrphy/bibliothecary','开源代码'],meta:'中文演示 · 3 分 05 秒',dur:'3 分 05 秒'}
 };
 const main=document.getElementById('main');
 const key=new URLSearchParams(location.search).get('project');
@@ -47,14 +47,14 @@ if(!P[key]||key==='arm'){
 }else if(P[key].placeholder){
   document.title=P[key].name+' · Murphy';
   document.querySelector(`nav a[data-p="${key}"]`)?.setAttribute('aria-current','page');
-  main.innerHTML=`<section class="lead"><div class="eyebrow">04 / Margin</div><h1>${esc(P[key].name)}</h1></section><div class="video-placeholder" aria-label="预留演示视频位置"><span>演示视频预留位</span></div><div class="links"><a href="portfolio/">作品集</a><a href="https://github.com/Muurrphy/margin">开源项目</a></div>`;
+  main.innerHTML=`<section class="lead"><div class="eyebrow">04 / The Librarian</div><h1>${esc(P[key].name)}</h1><p>${esc(P[key].intro)}</p></section><div class="video-placeholder vertical" aria-label="预留竖屏演示视频位置"><span>竖屏演示视频预留位</span></div><div class="links"><a href="portfolio/">作品集</a><a href="https://github.com/Muurrphy/bibliothecary">开源项目</a></div>`;
 }else{
   const p=P[key];
   document.title=p.name+' · Murphy';
   document.querySelector(`nav a[data-p="${key}"]`)?.setAttribute('aria-current','page');
   const link=p.link?` <a href="${p.link[0]}">${p.link[1]} ↗</a>`:'';
   main.innerHTML=`<section class="lead"><div class="eyebrow">${p.n} / ${esc(p.name)}</div><h1>${esc(p.name)}</h1><p>${esc(p.intro)}${link}</p></section>
-  <div class="player"><video id="video" controls playsinline preload="metadata" poster="${p.poster}"></video></div>
+  <div class="player${p.vertical?' vertical':''}"><video id="video" controls playsinline preload="metadata" poster="${p.poster}"></video></div>
   ${p.cap?`<p class="video-caption">${esc(p.cap)}</p>`:''}
   <p id="status" class="status">视频载入失败，请刷新页面重试。</p>
   <div class="meta"><span>${esc(p.meta)}</span><a href="portfolio/">在作品集里看完整介绍 ↗</a></div>
