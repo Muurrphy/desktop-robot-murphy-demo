@@ -14,7 +14,7 @@
   <header class="site-header">
     <a class="wordmark" href="./">Murphy<i>.</i></a>
     <nav aria-label="项目">
-      <a href="portfolio/">作品集</a><a href="expressions/">Bipu</a><a href="?project=margin" data-p="margin">The Librarian</a><a href="?project=desk" data-p="desk">桌面机器人</a><a href="?project=ground" data-p="ground">地面机器人</a>
+      <a href="portfolio/">作品集</a><a href="?project=desk" data-p="desk">桌面机器人</a><a href="expressions/">Bipu</a><a href="?project=margin" data-p="margin">The Librarian</a><a href="?project=ground" data-p="ground">地面机器人</a>
     </nav>
   </header>
   <main id="main"></main>
@@ -23,14 +23,14 @@
 <script src="hls.min.js"></script>
 <script>
 const P={
-  desk:{n:'03',name:'桌面人形机器人',poster:'desk.jpg',href:'?project=desk',
+  desk:{n:'01',name:'桌面人形机器人',poster:'desk.jpg',href:'?project=desk',
     intro:'接入实时语音的桌面机器人原型：小屏上的眼睛和嘴，加上会转动的头。',meta:'中文实拍 · 5 分 13 秒',dur:'5 分 13 秒',hls:true,
     cap:'这是我做的桌面机器人原型，已经能和人对话。视频把它放进了个人助手的使用场景，要让它在日常生活中长期可靠地帮人处理事情，还需要继续开发。'},
   ground:{n:'04',name:'热成像追踪与激光避障机器人',poster:'ground.jpg',href:'?project=ground',src:'ground.mp4',
     intro:'用热成像找人，用激光测距保持距离、避开障碍。',meta:'实拍 · 47 秒',dur:'47 秒'},
-  arm:{n:'01',name:'Bipu',poster:'expressions/bipu-pet-demo.jpg',href:'expressions/?mode=pet',
+  arm:{n:'02',name:'Bipu',poster:'expressions/bipu-pet-demo.jpg',href:'expressions/?mode=pet',
     intro:'基于 SO-101 和 Jev，通过 Telegram 接收消息，以动作和电子叫声反馈。',meta:'宠物模式 / 编排模式',dur:'两种模式'},
-  margin:{n:'02',name:'The Librarian 图书管理员',href:'?project=margin',poster:'librarian-20261009.jpg',src:'librarian-20261009.mp4',vertical:true,
+  margin:{n:'03',name:'The Librarian 图书管理员',href:'?project=margin',poster:'librarian-20261009.jpg',src:'librarian-20261009.mp4',vertical:true,
     intro:'住在 Telegram 里的 AI 图书管理员。',link:['https://github.com/Muurrphy/bibliothecary','开源代码'],meta:'中文演示 · 3 分 05 秒',dur:'3 分 05 秒'}
 };
 const main=document.getElementById('main');
@@ -39,11 +39,11 @@ const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&qu
 function card(k){const p=P[k];if(p.placeholder)return `<a class="card" href="${p.href}"><div class="ph reserved"><span>演示视频预留位</span></div><span class="num">${p.n} / ${esc(p.name)}</span><h2>${esc(p.name)}</h2></a>`;return `<a class="card" href="${p.href}"><div class="ph"><img src="${p.poster}" alt="${esc(p.name)}视频封面" loading="lazy"></div><span class="num">${p.n} / ${esc(p.name)}</span><h2>${esc(p.name)}</h2><p>${esc(p.intro)}</p><span class="go">观看视频 · ${p.dur} →</span></a>`}
 if(!P[key]||key==='arm'){
   document.title='作品与视频 · Murphy';
-  main.innerHTML=`<section class="lead"><div class="eyebrow">刘美辰 · 机器人原型与演示视频</div><h1>作品与视频</h1><p>项目的实拍与场景演示。完整介绍在作品集里。</p><div class="links"><a href="portfolio/">在线阅读作品集</a><a href="https://github.com/Muurrphy">GitHub</a></div></section><section class="cards">${['arm','margin','desk','ground'].map(card).join('')}</section>`;
+  main.innerHTML=`<section class="lead"><div class="eyebrow">刘美辰 · 机器人原型与演示视频</div><h1>作品与视频</h1><p>项目的实拍与场景演示。完整介绍在作品集里。</p><div class="links"><a href="portfolio/">在线阅读作品集</a><a href="https://github.com/Muurrphy">GitHub</a></div></section><section class="cards">${['desk','arm','margin','ground'].map(card).join('')}</section>`;
 }else if(P[key].placeholder){
   document.title=P[key].name+' · Murphy';
   document.querySelector(`nav a[data-p="${key}"]`)?.setAttribute('aria-current','page');
-  main.innerHTML=`<section class="lead"><div class="eyebrow">02 / The Librarian</div><h1>${esc(P[key].name)}</h1><p>${esc(P[key].intro)}</p></section><div class="video-placeholder vertical" aria-label="预留竖屏演示视频位置"><span>竖屏演示视频预留位</span></div><div class="links"><a href="portfolio/">作品集</a><a href="https://github.com/Muurrphy/bibliothecary">开源项目</a></div>`;
+  main.innerHTML=`<section class="lead"><div class="eyebrow">03 / The Librarian</div><h1>${esc(P[key].name)}</h1><p>${esc(P[key].intro)}</p></section><div class="video-placeholder vertical" aria-label="预留竖屏演示视频位置"><span>竖屏演示视频预留位</span></div><div class="links"><a href="portfolio/">作品集</a><a href="https://github.com/Muurrphy/bibliothecary">开源项目</a></div>`;
 }else{
   const p=P[key];
   document.title=p.name+' · Murphy';
@@ -54,7 +54,7 @@ if(!P[key]||key==='arm'){
   ${p.cap?`<p class="video-caption">${esc(p.cap)}</p>`:''}
   <p id="status" class="status">视频载入失败，请刷新页面重试。</p>
   <div class="meta"><span>${esc(p.meta)}</span><a href="portfolio/">在作品集里看完整介绍 ↗</a></div>
-  <section class="more"><h3>其他项目</h3><div class="row">${['arm','margin','desk','ground'].filter(k=>k!==key).map(k=>`<a href="${P[k].href}">${P[k].placeholder?'<div class="ph reserved"><span>演示视频预留位</span></div>':`<img src="${P[k].poster}" alt="" loading="lazy">`}${P[k].n} · ${esc(P[k].name)}</a>`).join('')}</div></section>`;
+  <section class="more"><h3>其他项目</h3><div class="row">${['desk','arm','margin','ground'].filter(k=>k!==key).map(k=>`<a href="${P[k].href}">${P[k].placeholder?'<div class="ph reserved"><span>演示视频预留位</span></div>':`<img src="${P[k].poster}" alt="" loading="lazy">`}${P[k].n} · ${esc(P[k].name)}</a>`).join('')}</div></section>`;
   const video=document.getElementById('video'),status=document.getElementById('status');
   if(!p.hls){video.src=p.src;video.addEventListener('error',()=>status.classList.add('visible'));}
   else{
