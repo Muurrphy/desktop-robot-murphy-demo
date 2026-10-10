@@ -1,15 +1,20 @@
-# Murphy's project videos
+# Murphy's portfolio and project videos
 
-The web pages behind [muurrphy.github.io/desktop-robot-murphy-demo](https://muurrphy.github.io/desktop-robot-murphy-demo/): demo videos for four projects and an online copy of the portfolio.
+[Portfolio](https://muurrphy.github.io/desktop-robot-murphy-demo/portfolio/) · [Personal website](https://muurrphy.github.io/) · [GitHub](https://github.com/Muurrphy)
 
-刘美辰的作品视频网站：四个项目的实拍视频，和一份在线作品集。
+刘美辰的在线作品集与项目视频。项目顺序与作品集一致：桌面人形机器人、Bipu、Bibliothecary、热成像追踪与激光避障机器人。
 
-- [Desktop humanoid robot · 桌面人形机器人](https://muurrphy.github.io/desktop-robot-murphy-demo/?project=desk)
-- [Ground robot · 热成像追踪与激光避障机器人](https://muurrphy.github.io/desktop-robot-murphy-demo/?project=ground)
-- [Bipu · Jev-powered robot pet](https://muurrphy.github.io/desktop-robot-murphy-demo/expressions/) — code: [Bipu](https://github.com/Muurrphy/bipu)
-- [Kindle companion · Kindle 伴读与多语言口型](https://muurrphy.github.io/desktop-robot-murphy-demo/?project=margin) — code: [margin](https://github.com/Muurrphy/margin)
-- [Portfolio · 作品集](https://muurrphy.github.io/desktop-robot-murphy-demo/portfolio/)
+## Projects
 
-The octopus footage on screen in the Kindle demo is from OIST (CC BY 4.0).
+- **[Desktop humanoid robot · 桌面人形机器人](https://muurrphy.github.io/desktop-robot-murphy-demo/?project=desk)** — a desktop robot prototype with realtime voice interaction.
+- **[Bipu](https://muurrphy.github.io/desktop-robot-murphy-demo/expressions/)** — SO-101 × Jev, with Telegram input, eight recorded motions, electronic calls and two modes: [pet](https://muurrphy.github.io/desktop-robot-murphy-demo/expressions/?mode=pet) and [choreography](https://muurrphy.github.io/desktop-robot-murphy-demo/expressions/?mode=choreography). [Source code](https://github.com/Muurrphy/bipu)
+- **[Bibliothecary · 图书管理员](https://muurrphy.github.io/desktop-robot-murphy-demo/?project=margin)** — a personal librarian for books, articles and papers: Telegram, voice discussion, reading progress and source-linked notes. The résumé and portfolio use **The Librarian** as an accessible label. [Source code](https://github.com/Muurrphy/bibliothecary)
+- **[Thermal-tracking ground robot · 热成像追踪与激光避障机器人](https://muurrphy.github.io/desktop-robot-murphy-demo/?project=ground)** — thermal tracking and time-of-flight obstacle avoidance.
 
-Bipu has two demonstrations at `/expressions/?mode=pet` and `/expressions/?mode=choreography`. The pet film is an edited presentation using recorded motion footage; the octopus film is a fixed choreography. Existing `?emotion=` links still work. Full resume/contact PDFs are not published.
+## Repository scope
+
+This repository hosts the public portfolio, video pages and media. The two open-source projects are **Bibliothecary** and **Bipu**, maintained in their own repositories above. Their READMEs document setup and current implementation status.
+
+Existing `?project=margin` and `?emotion=` links remain compatible. Full résumé and portfolio PDFs with contact details are kept separately for applications.
+
+The octopus footage shown on screen is from OIST (CC BY 4.0); source attribution is included on the relevant video pages.
