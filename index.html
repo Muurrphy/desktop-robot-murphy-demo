@@ -63,12 +63,12 @@ if(!P[key]||key==='arm'){
       compatibility=fallback;
       const source=fallback?'desk-compatible/index.m3u8?v=20261019-b2afb1b68c':'desk-4k-hevc/index.m3u8?v=20261019-b2afb1b68c';
       if(hls){hls.destroy();hls=null;}
-      if(video.canPlayType('application/vnd.apple.mpegurl'))video.src=source;
-      else if(window.Hls&&window.Hls.isSupported()){
+      if(window.Hls&&window.Hls.isSupported()){
         hls=new Hls({enableWorker:true,maxBufferLength:18});
         hls.loadSource(source);hls.attachMedia(video);
         hls.on(Hls.Events.ERROR,(_e,data)=>{if(data.fatal){if(!compatibility)loadVideo(true);else status.classList.add('visible');}});
-      }else status.classList.add('visible');
+      }else if(video.canPlayType('application/vnd.apple.mpegurl'))video.src=source;
+      else status.classList.add('visible');
     }
     video.addEventListener('error',()=>{if(!compatibility)loadVideo(true);else status.classList.add('visible');});
     loadVideo(true);
